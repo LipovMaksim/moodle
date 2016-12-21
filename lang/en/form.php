@@ -24,6 +24,7 @@
  */
 
 $string['addfields'] = 'Add {$a} field(s) to form';
+$string['addfieldsnumbername'] = 'Add {$a->number} {$a->name} to form';
 $string['advancedelement'] = 'Advanced element';
 $string['close'] = 'Close';
 $string['day'] = 'Day';
@@ -39,6 +40,7 @@ $string['err_nopunctuation'] = 'You must enter no punctuation characters here.';
 $string['err_numeric'] = 'You must enter a number here.';
 $string['err_rangelength'] = 'You must enter between {$a->format[0]} and {$a->format[1]} characters here.';
 $string['err_required'] = 'You must supply a value here.';
+$string['field(s)'] = 'field(s)';
 $string['general'] = 'General';
 $string['hideadvanced'] = 'Hide advanced';
 $string['hour'] = 'Hour';

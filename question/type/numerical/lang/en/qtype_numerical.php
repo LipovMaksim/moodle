@@ -105,6 +105,7 @@ $string['unitposition'] = 'Units go';
 $string['units'] = 'Units';
 $string['unitselect'] = 'a drop-down menu';
 $string['unitx'] = 'Unit {no} ';
+$string['unit(s)'] = 'unit(s)';
 $string['validnumberformats'] = 'Valid number formats';
 $string['validnumberformats_help'] = '* regular numbers 13500.67, 13 500.67, 13500,67 or 13 500,67
 

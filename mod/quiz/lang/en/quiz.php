@@ -357,6 +357,7 @@ $string['feedbackerrorboundaryoutofrange'] = 'Feedback grade boundaries must be 
 $string['feedbackerrorjunkinboundary'] = 'You must fill in the feedback grade boundary boxes without leaving any gaps.';
 $string['feedbackerrorjunkinfeedback'] = 'You must fill in the feedback boxes without leaving any gaps.';
 $string['feedbackerrororder'] = 'Feedback grade boundaries must be in order, highest first. The value you entered in boundary {$a} is out of sequence.';
+$string['feedbackfield(s)'] = 'feedback field(s)';
 $string['file'] = 'File';
 $string['fileformat'] = 'File format';
 $string['fillcorrect'] = 'Fill with correct';

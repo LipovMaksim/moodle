@@ -36,6 +36,7 @@ $string['dropbackground'] = 'Background image for dragging markers onto';
 $string['dropzone'] = 'Drop zone {$a}';
 $string['dropzoneheader'] = 'Drop zones';
 $string['dropzones'] = 'Drop zones';
+$string['dropzone(s)'] = 'drop zone(s)';
 $string['dropzones_help'] = 'The drop zones are defined by typing coordinates. As you type, the preview above is immediately updated, so you can position things by trial and improvement.
 
 * Circle: centre_x, centre_y; radius<br>for example: <code>80, 100; 50</code>
@@ -58,6 +59,7 @@ $string['infinite'] = 'Infinite';
 $string['marker'] = 'Marker';
 $string['marker_n'] = 'Marker {no}';
 $string['markers'] = 'Markers';
+$string['marker(s)'] = 'marker(s)';
 $string['nolabel'] = 'No label text';
 $string['noofdrags'] = 'Number';
 $string['pleasedragatleastonemarker'] = 'Your answer is not complete; you must place at least one marker on the image.';

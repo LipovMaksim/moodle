@@ -332,8 +332,7 @@ abstract class question_edit_form extends question_wizard_form {
         }
 
         $this->repeat_elements($repeated, $repeatsatstart, $repeatedoptions,
-                'noanswers', 'addanswers', $addoptions,
-                $this->get_more_choices_string(), true);
+                'answers', $addoptions, true, get_string('choice(s)', 'question'));
     }
 
     /**
@@ -444,7 +443,7 @@ abstract class question_edit_form extends question_wizard_form {
         list($repeated, $repeatedoptions) = $this->get_hint_fields(
                 $withclearwrong, $withshownumpartscorrect);
         $this->repeat_elements($repeated, $repeatsatstart, $repeatedoptions,
-                'numhints', 'addhint', 1, get_string('addanotherhint', 'question'), true);
+                'hint', 1, true, get_string('hint(s)', 'question'));
     }
 
     public function set_data($question) {

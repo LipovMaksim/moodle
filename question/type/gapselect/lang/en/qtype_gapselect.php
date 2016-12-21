@@ -26,6 +26,7 @@ $string['addmorechoiceblanks'] = 'Blanks for {no} more choices';
 $string['answer'] = 'Answer';
 $string['choices'] = 'Choices';
 $string['choicex'] = 'Choice {no}';
+$string['choice(s)'] = 'choice(s)';
 $string['combinedcontrolnamegapselect'] = 'drop down box';
 $string['combinedcontrolnamegapselectplural'] = 'drop down boxes';
 $string['correctansweris'] = 'The correct answer is: {$a}';

@@ -1035,31 +1035,35 @@ abstract class moodleform {
      *         'rule'       - array containing the addRule arguments after the element name.
      *         'expanded'   - whether this section of the form should be expanded by default. (Name be a header element.)
      *         'advanced'   - whether this element is hidden by 'Show more ...'.
-     * @param string $repeathiddenname name for hidden element storing no of repeats in this form
-     * @param string $addfieldsname name for button to add more fields
+     * @param string $prefix prefix for button to add more fields and hidden element storing no of repeats in this form
+     *    and use to get string for name of button from form.php ({$a->number} is replaced by no of blanks that will be added))
      * @param int $addfieldsno how many fields to add at a time
-     * @param string $addstring name of button, {no} is replaced by no of blanks that will be added.
      * @param bool $addbuttoninside if true, don't call closeHeaderBefore($addfieldsname). Default false.
+     * @param string $blankname name of blank. This string is substituted for {$a->name} in string
+     *      "Add {$a->number} {$a->name}(s) to form". Default "field".
      * @return int no of repeats of element in this page
      */
-    function repeat_elements($elementobjs, $repeats, $options, $repeathiddenname,
-            $addfieldsname, $addfieldsno=5, $addstring=null, $addbuttoninside=false){
-        if ($addstring===null){
-            $addstring = get_string('addfields', 'form', $addfieldsno);
-        } else {
-            $addstring = str_ireplace('{no}', $addfieldsno, $addstring);
+    public function repeat_elements($elementobjs, $repeats, $options, $prefix,
+                            $addfieldsno=5, $addbuttoninside=false, $blankname=null) {
+
+        $a = new stdClass();
+        if ($blankname == null) {
+            $blankname = get_string('field(s)', 'form');
         }
-        $repeats = optional_param($repeathiddenname, $repeats, PARAM_INT);
-        $addfields = optional_param($addfieldsname, '', PARAM_TEXT);
+        $a->name   = $blankname;
+        $a->number = $addfieldsno;
+        $addstring = get_string('addfieldsnumbername', 'form', $a);
+        $repeats = optional_param('no'.$prefix, $repeats, PARAM_INT);
+        $addfields = optional_param('add'.$prefix, '', PARAM_TEXT);
         if (!empty($addfields)){
             $repeats += $addfieldsno;
         }
         $mform =& $this->_form;
-        $mform->registerNoSubmitButton($addfieldsname);
-        $mform->addElement('hidden', $repeathiddenname, $repeats);
-        $mform->setType($repeathiddenname, PARAM_INT);
+        $mform->registerNoSubmitButton('add'.$prefix);
+        $mform->addElement('hidden', 'no'.$prefix, $repeats);
+        $mform->setType('no'.$prefix, PARAM_INT);
         //value not to be overridden by submitted value
-        $mform->setConstants(array($repeathiddenname=>$repeats));
+        $mform->setConstants(array('no'.$prefix => $repeats));
         $namecloned = array();
         for ($i = 0; $i < $repeats; $i++) {
             foreach ($elementobjs as $elementobj){
@@ -1128,10 +1132,10 @@ abstract class moodleform {
                 }
             }
         }
-        $mform->addElement('submit', $addfieldsname, $addstring);
+        $mform->addElement('submit', 'add'.$prefix, $addstring);
 
         if (!$addbuttoninside) {
-            $mform->closeHeaderBefore($addfieldsname);
+            $mform->closeHeaderBefore('add'.$prefix);
         }
 
         return $repeats;
